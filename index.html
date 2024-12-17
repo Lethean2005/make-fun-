@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confess My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff4d6d;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e63950;
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-100px);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+    }
+
+    #love-message {
+      display: none;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: yellow;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>I've Something to Say... 💌</h1>
+    <p>Click the button to reveal my feelings.</p>
+    <button onclick="confessLove()">Click Me</button>
+    <div id="love-message">I Love You So Much! 💖</div>
+  </div>
+
+  <script>
+    function confessLove() {
+      const message = document.getElementById("love-message");
+      message.style.display = "block";
+
+      // Heart animation
+      const numberOfHearts = 30;
+      for (let i = 0; i < numberOfHearts; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        document.body.appendChild(heart);
+
+        // Remove hearts after animation
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
